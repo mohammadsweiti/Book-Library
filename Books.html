@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Library - Books</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="books.html">Books</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <h2>Books Collection</h2>
+      <input
+        type="text"
+        id="search"
+        placeholder="Search books..."
+        oninput="searchBooks()"
+      />
+      <div id="book-list"></div>
+      <br />
+    </main>
+    <div class="container">
+      <h1>Book Library</h1>
+      <div class="form-container">
+        <input type="text" id="title" placeholder="Book Title" required />
+        <input type="text" id="author" placeholder="Author" required />
+        <input type="text" id="genre" placeholder="Genre" />
+        <button onclick="addBook()">Add Book</button>
+      </div>
+
+      <div class="search-container">
+        <input
+          type="text"
+          id="search"
+          placeholder="Search by Title or Author"
+          oninput="searchBooks()"
+        />
+      </div>
+
+      <div class="library-container">
+        <h2>Library</h2>
+        <ul id="bookList"></ul>
+      </div>
+
+      <div class="reading-list-container">
+        <h2>Reading List</h2>
+        <ul id="readingList"></ul>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

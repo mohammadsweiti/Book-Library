@@ -101,3 +101,33 @@ function clearForm() {
   document.getElementById("author").value = "";
   document.getElementById("genre").value = "";
 }
+async function fetchBooks() {
+  const response = await fetch('https://jsonplaceholder.typicode.com/posts'); // Fake API endpoint
+  const books = await response.json();
+  displayBooks(books);
+}
+
+
+function displayBooks(books) {
+  const bookList = document.getElementById('book-list');
+  bookList.innerHTML = books.map(book => `
+    <div class="book">
+      <h3>${book.title}</h3>
+      <p>${book.body.substring(0, 100)}...</p>
+      <a href="book-details.html?id=${book.id}">Read more</a>
+    </div>
+  `).join('');
+}
+
+function searchBooks() {
+  const query = document.getElementById('search').value.toLowerCase();
+  const bookList = document.querySelectorAll('.book');
+  bookList.forEach(book => {
+    const title = book.querySelector('h3').textContent.toLowerCase();
+    book.style.display = title.includes(query) ? 'block' : 'none';
+  });
+}
+
+if (window.location.pathname.endsWith('books.html')) {
+  fetchBooks();
+}

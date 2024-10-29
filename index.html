@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book Library</title>
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="style3.css" />
   </head>
   <body>
     <nav>
+      <img src="./img/book.avif" alt="book" height="50" width="50" />
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="books.html">Books</a></li>
@@ -15,33 +17,24 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
-    <div class="container">
+
+    <section>
       <h1>Book Library</h1>
-      <div class="form-container">
-        <input type="text" id="title" placeholder="Book Title" required />
-        <input type="text" id="author" placeholder="Author" required />
-        <input type="text" id="genre" placeholder="Genre" />
-        <button onclick="addBook()">Add Book</button>
-      </div>
+      <p>
+        Welcome to My Book Library, your personal space to discover, organize,
+        and track your favorite books. With this catalog, you can easily add new
+        books by title, author, and genre, mark them as read or unread, and
+        create a reading list tailored just for you. Looking for something
+        specific? Use the search feature to find books by title or author. Our
+        library also saves your collection, so you can return anytime to pick up
+        where you left off. Dive into your reading journey and let My Book
+        Library help you keep track of every page you turn!
+      </p>
 
-      <div class="search-container">
-        <input
-          type="text"
-          id="search"
-          placeholder="Search by Title or Author"
-          oninput="searchBooks()"
-        />
+      <div class="button-container">
+        <a href="./Books.html"> <button>Go to Books</button></a>
       </div>
-
-      <div class="library-container">
-        <h2>Library</h2>
-        <ul id="bookList"></ul>
-      </div>
-
-      <div class="reading-list-container">
-        <h2>Reading List</h2>
-        <ul id="readingList"></ul>
-      </div>
-    </div>
+    </section>
+    <script src="script.js"></script>
   </body>
 </html>

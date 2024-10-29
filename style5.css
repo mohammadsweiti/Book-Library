@@ -1,0 +1,32 @@
+.book-details-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #333;
+    color: #FFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.book-details-container img {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.book-info {
+    flex: 1;
+}
+
+.book-info h3 {
+    margin-top: 0;
+    color: #E91E63;
+}
+
+.book-info p {
+    margin: 5px 0;
+}

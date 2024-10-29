@@ -10,7 +10,7 @@ function addBook() {
     return;
   }
 
-  const book = { title, author, genre, read: false };
+  const book = { id: Date.now(), title, author, genre, read: false };
   const books = getBooks();
   books.push(book);
   saveBooks(books);
@@ -18,17 +18,22 @@ function addBook() {
   clearForm();
 }
 
-function markAsRead(index) {
+function markAsRead(id) {
   const books = getBooks();
-  books[index].read = !books[index].read;
+  const book = books.find(b => b.id === id);
+  book.read = !book.read;
   saveBooks(books);
   displayBooks(books);
 }
 
-function addToReadingList(index) {
+function addToReadingList(id) {
   const books = getBooks();
   const readingList = getReadingList();
-  const book = books[index];
+  const book = books.find(b => b.id === id);
+  if (readingList.find(b => b.id === id)) {
+    alert("Book is already in the reading list.");
+    return;
+  }
   readingList.push(book);
   localStorage.setItem("readingList", JSON.stringify(readingList));
   displayReadingList();
@@ -38,7 +43,9 @@ function searchBooks() {
   const query = document.getElementById("search").value.toLowerCase();
   const books = getBooks();
   const filteredBooks = books.filter(
-    (book) => book.title.toLowerCase().includes(query) || book.author.toLowerCase().includes(query)
+    (book) =>
+      book.title.toLowerCase().includes(query) ||
+      book.author.toLowerCase().includes(query)
   );
   displayBooks(filteredBooks);
 }
@@ -55,23 +62,22 @@ function getReadingList() {
   return JSON.parse(localStorage.getItem("readingList") || "[]");
 }
 
-
 function displayBooks(books) {
   const bookList = document.getElementById("bookList");
   bookList.innerHTML = "";
 
-  books.forEach((book, index) => {
+  books.forEach((book) => {
     const bookItem = document.createElement("li");
     bookItem.className = "book-item";
     bookItem.innerHTML = `
       <div class="book-info">
         <strong>${book.title}</strong> by ${book.author} (${book.genre || "Unknown Genre"})
-        <br>
-        Status: ${book.read ? "Read" : "Unread"}
+        <br>Status: ${book.read ? "Read" : "Unread"}
       </div>
       <div class="actions">
-        <button onclick="markAsRead(${index})">${book.read ? "Unread" : "Read"}</button>
-        <button onclick="addToReadingList(${index})">Add to Reading List</button>
+        <button onclick="markAsRead(${book.id})">${book.read ? "Unread" : "Read"}</button>
+        <button onclick="addToReadingList(${book.id})">Add to Reading List</button>
+        <a href="book-details.html?id=${book.id}">View Details</a>
       </div>
     `;
     bookList.appendChild(bookItem);
@@ -100,34 +106,4 @@ function clearForm() {
   document.getElementById("title").value = "";
   document.getElementById("author").value = "";
   document.getElementById("genre").value = "";
-}
-async function fetchBooks() {
-  const response = await fetch('https://jsonplaceholder.typicode.com/posts'); // Fake API endpoint
-  const books = await response.json();
-  displayBooks(books);
-}
-
-
-function displayBooks(books) {
-  const bookList = document.getElementById('book-list');
-  bookList.innerHTML = books.map(book => `
-    <div class="book">
-      <h3>${book.title}</h3>
-      <p>${book.body.substring(0, 100)}...</p>
-      <a href="book-details.html?id=${book.id}">Read more</a>
-    </div>
-  `).join('');
-}
-
-function searchBooks() {
-  const query = document.getElementById('search').value.toLowerCase();
-  const bookList = document.querySelectorAll('.book');
-  bookList.forEach(book => {
-    const title = book.querySelector('h3').textContent.toLowerCase();
-    book.style.display = title.includes(query) ? 'block' : 'none';
-  });
-}
-
-if (window.location.pathname.endsWith('books.html')) {
-  fetchBooks();
 }

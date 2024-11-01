@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* background-color:#888 ; */
+}
+main{
+    background-color: #ddd;
+}
+#search-cont input {
+    background-color: #110f29;
+    color: red;
+    width: 60%;
+    border: 2px dotted whitesmoke;
+    padding: 1em 0.3em;
+  }
+  
+  #search-cont {
+    margin: 1em ;
+  }
+  #search-cont input:focus {
+    background-color: white;
+  }
+  #search-cont button {
+    padding: 1em 2em;
+    margin-left: 1em;
+    background-color: red;
+    color: whitesmoke;
+    border-radius: 5px;
+    margin-top: 0.5em;
+    border: 3px dashed black;
+  }
+  .button-value {
+    border: 2px dotted brown;
+    padding: 1em 2.2em;
+    border-radius: 3em;
+    background-color: black;
+    color: red;
+    cursor: pointer;
+  }
+  .active {
+    background-color: whitesmoke;
+    color: black;
+  }
+
+  #Books {
+    display: grid;
+    margin-left: 100px;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 1em;
+    padding: 2em 0;
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+      
+      
+  }
+  .card {
+    background-color: #ffffff;
+    max-width: 18em;
+    margin-top: 1em;
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: 1em 2em 2.5em rgba(1, 2, 68, 0.08);
+  }
+  .card:hover {
+    background-color: #ffffff;
+    max-width: 22em;
+    margin-top: 1em;
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: 1em 2em 2.5em rgba(1, 2, 68, 0.08);
+  }
+  .image-container {
+    text-align: center;
+  }
+  img {
+    max-width: 100%;
+    object-fit: contain;
+    height: 15em;
+  }
+  .container {
+    padding-top: 1em;
+    color: #110f29;
+  }
+  .container h5 {
+    font-weight: 500;
+  }
+  .hide {
+    display: none;
+  }
+  .above{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .container button {
+    padding: 0.5em 1em;
+    margin: 0.3em;
+    background-color: black;
+    color: red;
+    border: 2px solid red;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .container button:hover {
+    background-color: red;
+    color: white;
+  }
+  

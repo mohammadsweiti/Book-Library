@@ -1,0 +1,35 @@
+footer{
+    height: 15vh; 
+    padding: 15px;   background-color: #000;
+    color: white;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "top1 top2 top3"
+    "botom1 botom2 botom3"
+    
+    ;
+    text-align: center;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    width: 65vw;
+    justify-content: space-evenly;
+    grid-area: top2;
+}
+footer p {
+    grid-area: botom2;
+}
+footer ul li a {
+    text-decoration:none ;
+    color: white;
+    margin: 5px;
+}
+
+footer ul li a:hover{
+    color: red;
+    background-color: #fff;
+}

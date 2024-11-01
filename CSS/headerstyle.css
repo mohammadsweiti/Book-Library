@@ -1,0 +1,35 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: red;
+    font-size: 1.5em;
+    font-family: "Rubik Wet Paint", system-ui;
+    font-weight: 900;
+    font-style: normal;
+    margin-bottom: 15px;
+    height: 15vh;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: space-between;
+    width: 40vw ;
+}
+header nav ul li  {
+    list-style: none;
+
+}
+
+header nav ul li a  {
+text-decoration: none;
+    padding: 15px;
+    color: red;
+}
+
+header nav ul li a:hover  {
+    text-decoration: none;
+        color: white;
+        background-color: saddlebrown;
+    }

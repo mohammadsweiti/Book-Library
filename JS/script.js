@@ -152,11 +152,29 @@ function filterProduct(value) {
   buttons.forEach((button) => {
     if (value.toUpperCase() == button.innerText.toUpperCase()) {
       button.classList.add("active");
+      
     } else {
       button.classList.remove("active");
     }
   });
 
+  function filterReadingList() {
+    let elements = document.querySelectorAll(".card");
+    
+    elements.forEach((element, index) => {
+      if (products.data[index].isRead) {
+        element.classList.remove("hide");
+       
+      } else {
+        element.classList.add("hide");
+      }
+    });
+  }
+  function handleReadingListClick() {
+    filterReadingList();
+    filterProduct('Reading-List');
+  }
+  
   let elements = document.querySelectorAll(".card");
   elements.forEach((element) =>{
       if(value == "all"){
@@ -185,16 +203,14 @@ document.getElementById("search").addEventListener("click", () => {
   });
 });
 
-// Add `isRead` and `isInReadingList` properties to each book
 products.data = products.data.map(book => ({ ...book, isRead: false, isInReadingList: false }));
 
 function renderBooks() {
-  document.getElementById("Books").innerHTML = ""; // Clear existing books
+  document.getElementById("Books").innerHTML = ""; 
   products.data.forEach((book, index) => {
     let card = document.createElement("div");
     card.classList.add("card", book.subject, "hide");
 
-    // Create content for the card
     let imgContainer = document.createElement("div");
     imgContainer.classList.add("image-container");
 
@@ -218,19 +234,21 @@ function renderBooks() {
 
     let readButton = document.createElement("button");
     readButton.innerText = book.isRead ? "Mark as Unread" : "Mark as Read";
-    readButton.addEventListener("click", () => toggleReadStatus(index));
+    readButton.onclick = () => {
+      book.isRead = !book.isRead;
+      readButton.innerText = book.isRead ? "Mark as Unread" : "Mark as Read";
+      
+      saveToLocalStorage(); 
+      
+    };
     container.appendChild(readButton);
-
-    let readingListButton = document.createElement("button");
-    readingListButton.innerText = book.isInReadingList ? "Remove from Reading List" : "Add to Reading List";
-    readingListButton.addEventListener("click", () => toggleReadingList(index));
-    container.appendChild(readingListButton);
 
     card.appendChild(container);
     document.getElementById("Books").appendChild(card);
   });
-  filterProduct("all"); // Show all books by default
 }
+
+
 
 function toggleReadStatus(index) {
   products.data[index].isRead = !products.data[index].isRead;
@@ -238,11 +256,7 @@ function toggleReadStatus(index) {
   renderBooks();
 }
 
-function toggleReadingList(index) {
-  products.data[index].isInReadingList = !products.data[index].isInReadingList;
-  saveToLocalStorage();
-  renderBooks();
-}
+
 
 function saveToLocalStorage() {
   localStorage.setItem("books", JSON.stringify(products.data));
@@ -256,7 +270,7 @@ function loadFromLocalStorage() {
 function filterReadingList() {
   let elements = document.querySelectorAll(".card");
   elements.forEach((element, index) => {
-    if (products.data[index].isInReadingList) {
+    if (products.data[index].isRead) {
       element.classList.remove("hide");
     } else {
       element.classList.add("hide");
@@ -264,10 +278,53 @@ function filterReadingList() {
   });
 }
 
+
+/////////////////////
+function saveToLocalStorage() {
+  localStorage.setItem("books", JSON.stringify(products.data));
+}
+
+function loadFromLocalStorage() {
+  const data = JSON.parse(localStorage.getItem("books"));
+  if (data) products.data = data;
+  renderBooks();
+}
+
+document.getElementById('addBookForm').onsubmit = (event) => {
+  event.preventDefault(); 
+
+  const title = document.getElementById('title').value;
+  const author = document.getElementById('author').value;
+  const subject = document.getElementById('subject').value;
+
+  const newBook = {
+      title: title,
+      author: author,
+      subject: subject,
+      date: new Date().toISOString().split('T')[0], 
+      image: "../img/default.jpg", 
+      isRead: false
+  };
+
+  products.data.push(newBook);
+
+  saveToLocalStorage();
+
+  window.onload = loadFromLocalStorage;;
+  renderBooks();
+
+  document.getElementById('addBookForm').reset();
+  filterProduct("all");
+
+};
+
+// renderBooks();
+
 window.onload = loadFromLocalStorage;
 
 
 
 window.onload = () => {
+  loadFromLocalStorage();
   filterProduct("all");
 };

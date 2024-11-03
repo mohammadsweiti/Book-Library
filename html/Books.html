@@ -1,68 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Book Library - Books</title>
-  <link rel="stylesheet" href="../CSS/style.css" />
-</head>
-<body>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="books.html">Books</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="../CSS/style.css" /> -->
+    <!-- <link rel="stylesheet" href="../CSS/style3.css" /> -->
+    
 
-  <main>
-    <h2>Books Collection</h2>
+    <link rel="stylesheet" href="../CSS/bookstyle.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Book Management</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="books.html">Books</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-    <!-- Book Addition Form -->
-    <div class="form-container">
-      <input type="text" id="title" placeholder="Book Title" required />
-      <input type="text" id="author" placeholder="Author" required />
-      <input type="text" id="genre" placeholder="Genre" />
-      <button onclick="addBook()">Add Book</button>
-    </div>
+    <main>
+      <h2>Available Books</h2>
+      <div id="Books" class="book-list">
+        <!-- Book cards will be rendered here -->
+      </div>
+    </main>
 
-    <!-- Search Bar -->
-    <div class="search-container">
-      <input
-        type="text"
-        id="search"
-        placeholder="Search by Title or Author"
-        oninput="searchBooks()"
-      />
-    </div>
+    <footer>
+      <ul>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="books.html">Books</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+      <p>
+        Engineer Library Management || Copyright © 2022 - All rights reserved ||
+        Designed By: Engineer Group
+      </p>
+    </footer>
 
-    <!-- Book Library Display -->
-    <div class="library-container">
-      <h3>Library</h3>
-      <ul id="bookList"></ul>
-    </div>
-
-    <!-- Reading List Display -->
-    <div class="reading-list-container">
-      <h3>Reading List</h3>
-      <ul id="readingList"></ul>
-    </div>
-  </main>
-
-  <!-- Book Display Sample -->
-  <div class="book-item">
-    <img src="cover-image.jpg" alt="Book Cover" class="book-cover">
-    <div class="book-info">
-        <h3>Book Title</h3>
-        <p class="book-author">Author: John Doe</p>
-        <p class="book-status">Status: Unread</p>
-    </div>
-    <div class="actions">
-        <button onclick="viewBookDetails('bookId')">View Details</button>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
-</body>
+    <script src="../JS/script.js"></script>
+  </body>
 </html>

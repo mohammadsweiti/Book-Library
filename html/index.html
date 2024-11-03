@@ -45,7 +45,7 @@
 
           Novel
         </button>
-        <button class="button-value" onclick="filterReadingList()">Reading List</button>
+        <button class="button-value push1" onclick="filterProduct('Reading-List');filterReadingList()" >Reading-List</button>
 
         <button class="button-value" onclick="filterProduct('Fantasy')">
           Fantasy
@@ -60,6 +60,14 @@
         <button id="search">Search</button>
       </div>
     </section>
+    <div class="books2">
+      <h2>Add a New Book</h2>
+      <form id="addBookForm">
+          <input type="text" id="title" placeholder="Book Title" required />
+          <input type="text" id="author" placeholder="Author" required />
+          <input type="text" id="subject" placeholder="Genre" required />
+          <button type="submit">Add Book</button>
+      </form>
     </div>
       <div id="Books">
         

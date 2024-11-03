@@ -7,7 +7,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: black;
+    background-color: #4CAF50;
     color: whitesmoke;
     font-size: 1.5em;
     font-family: "Rubik Wet Paint", system-ui;
@@ -34,7 +34,8 @@ text-decoration: none;
 }
 
 header nav ul li a:hover  {
-    text-decoration: none;
+        text-decoration: none;
         color: red;
+        background-color: black;
         background-color: saddlebrown;
     }

@@ -1,16 +1,29 @@
+header{
+  border: 1px dashed whitesmoke;
+  box-sizing: content-box;
+}
+
 body{
-  background-color: black;
-  color: red;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+  color: burlywood;
   text-align: center;
   font-family: "Spicy Rice", serif;
   font-weight: 400;
   font-style: normal;
   line-height: 25px;
   font-size: 1.3em;
+  box-sizing: border-box;
 }
 
 .features-section ul{
   list-style: none;
+}
+
+.features-section ul li a{
+  box-sizing: border-box;
+  
 }
 
 .about-section,
@@ -18,7 +31,12 @@ body{
 .features-section
 ,.features-section,
 .future-enhancements,
-.team-section,
+/* .team-section, */
 .team-member{
   border: 5px whitesmoke dotted;
+  margin-bottom: 25px;
+  padding: 5px;
+
+  box-sizing: border-box;
 }
+

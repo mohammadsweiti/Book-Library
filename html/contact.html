@@ -4,41 +4,199 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact - Book Library</title>
-    <link rel="stylesheet" href="../CSS/style.css" />
-    <link rel="stylesheet" href="../CSS/style4.css" />
+    <link rel="stylesheet" href="../CSS/contact-me-style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Rubik+Wet+Paint&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Rubik+Bubbles&family=Rubik+Wet+Paint&family=Spicy+Rice&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Merienda:wght@300..900&family=Rubik+Bubbles&family=Rubik+Wet+Paint&family=Spicy+Rice&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="books.html">Books</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+    <header>
+      <h1>Book Managment</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="books.html">Books</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-    <main>
-      <h2>Contact Us</h2>
-      <p>Feel free to reach out to us with any questions or feedback!</p>
+    <main class="main">
+      <div>
+        <h2>
+          Got something on your mind? Drop your questions here, and I’ll make
+          sure to get back to you.
+        </h2>
+      </div>
+      <div class="main3">
+        <form action="" method="post">
+          <table
+            border="1"
+            style="
+              border-collapse: collapse;
+
+              text-align: center;
+              padding: 5px;
+              margin: 5px;
+            "
+          >
+            <tr>
+              <td colspan="2"><h1>Contact us after fulling this</h1></td>
+            </tr>
+            <tr>
+              <td><label for="Fname">Full Name</label></td>
+              <td>
+                <input
+                  type="text"
+                  name="Fname"
+                  id="Fname"
+                  placeholder="Enter first name"
+                  maxlength="50"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="DOB">Date of Birth</label></td>
+              <td>
+                <input
+                  type="date"
+                  max="2008-01-01"
+                  min="1970-01-01"
+                  id="DOB"
+                  name="DOB"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="Genderm">Gender</label></td>
+              <td>
+                <input type="radio" name="Gender" id="Genderm" value="Male" />
+                <label for="Genderm">Male</label>
+                <input type="radio" name="Gender" id="Genderf" value="Female" />
+                <label for="Genderf">Female</label>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="Country">Country</label></td>
+              <td>
+                <select name="Country" id="Country">
+                  <option value="Country" disabled selected>coountry</option>
+                  <option value="palestine">palestine</option>
+                  <option value="jordan">jordan</option>
+                  <option value="egpt">egpt</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="emi">E-mail</label></td>
+              <td>
+                <input
+                  type="email"
+                  id="emi"
+                  placeholder="Enter E-mail"
+                  name="E-mail"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="phone">phone</label></td>
+              <td>
+                <input
+                  type="tel"
+                  id="phone"
+                  placeholder="Enter phone"
+                  name="phone"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="pass">password</label></td>
+              <td>
+                <input type="password" id="pass" name="password" required />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="Cpass">Confirm password</label></td>
+              <td>
+                <input type="password" id="Cpass" name="password" required />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="mes">Title of the message</label></td>
+              <td>
+                <input
+                  type="text"
+                  name="mes"
+                  id="mes"
+                  placeholder="message title"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="mesa">Enter your message </label></td>
+              <td>
+                <textarea name="mesa" id="mesa" rows="10" cols="50"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <input type="checkbox" id="chech" />
+                <label for="chech"> I Agree tp the Terms of use </label>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" style="text-align: right">
+                <input type="submit" value="submit" />
+                <input type="reset" value="reset" />
+              </td>
+            </tr>
+          </table>
+        </form>
+        <div>
+          <br /><br />
+          I truly appreciate you taking the time to reach out. Your message is
+          important to me, and I’m committed to providing a thoughtful response.
+          Please rest assured, I’ll be reviewing your message carefully and will
+          be in touch soon to address any questions or provide the information
+          you need. Thank you for your patience, and I look forward to
+          connecting with you!
+        </div>
+      </div>
     </main>
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <form id="contact-form">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required />
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
-
-        <label for="subject">Subject:</label>
-        <input type="text" id="subject" name="subject" />
-
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-
-        <button type="submit">Send Message</button>
-      </form>
-    </section>
-    <script src="script.js"></script>
+    <footer>
+      <ul>
+        <li><a href="contact.html">contact us</a></li>
+        <li><a href="Books.html">Books</a></li>
+        <li><a href="about.html">About us</a></li>
+      </ul>
+      <p>
+        Engineer Library Management || Copyright © 2022 - All rights reserved ||
+        Designed By: Engineer Group
+      </p>
+    </footer>
   </body>
 </html>

@@ -1,9 +1,14 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
 header{
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: black;
-    color: red;
+    color: whitesmoke;
     font-size: 1.5em;
     font-family: "Rubik Wet Paint", system-ui;
     font-weight: 900;
@@ -24,12 +29,12 @@ header nav ul li  {
 
 header nav ul li a  {
 text-decoration: none;
-    padding: 15px;
-    color: red;
+    padding-right: 15px;
+    color: whitesmoke;
 }
 
 header nav ul li a:hover  {
     text-decoration: none;
-        color: white;
+        color: red;
         background-color: saddlebrown;
     }
